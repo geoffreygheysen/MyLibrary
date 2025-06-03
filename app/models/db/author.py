@@ -10,5 +10,5 @@ class Author(Base):
     country = Column(String(50), nullable=False)
     
     # Un auteur peut avoir plusieurs livres (1-N)
-    livres = relationship("Book", back_populates="author")
+    books = relationship("Book", back_populates="author")
     
