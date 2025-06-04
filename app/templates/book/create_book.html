@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block title %}Création d'un livre{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl">
+    <h1 class="text-3xl font-bold text-primary mb-6">Créer un livre</h1>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- Titre -->
+        <div class="form-control mb-4">
+            <label class="label">
+                <span class="label-text">Titre du livre</span>
+            </label>
+            {{ form.title(class="input input-bordered w-full") }}
+            {% if form.title.errors %}
+            <p class="text-error mt-1 text-sm">
+                {% for error in form.title.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            {% endif %}
+        </div>
+
+        <!-- Date de publication -->
+        <div class="form-control mb-4">
+            <label class="label">
+                <span class="label-text">Date de publication</span>
+            </label>
+            {{ form.publication_date(class="input input-bordered w-full") }}
+        </div>
+
+        <!-- Auteur -->
+        <div class="form-control mb-4">
+            <label class="label">
+                <span class="label-text">Auteur</span>
+            </label>
+            {{ form.author(class="select select-bordered w-full") }}
+        </div>
+
+        <!-- Catégories (si sélection multiple possible) -->
+        <div class="form-control mb-6">
+            <label class="label">
+                <span class="label-text">Catégories</span>
+            </label>
+            {{ form.categories(class="select select-bordered w-full", multiple=true) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">
+            Créer le livre
+        </button>
+    </form>
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('get_books') }}" class="link link-secondary">
+            Voir les livres
+        </a>
+    </div>
+</div>
+{% endblock %}

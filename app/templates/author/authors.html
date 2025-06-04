@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %} Liste des auteurs {% endblock %}
+
+{% block content %}
+
+<h1>Liste des livres</h1>
+<ul>
+    {% for author in authors %}
+    <li>{{ author.name }}</li>
+    {% else %}
+    <li>Aucun auteur pour le moment.</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('create_author') }}">Créer un nouvel auteur</a>
+
+{% endblock %}

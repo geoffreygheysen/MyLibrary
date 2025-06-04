@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-# from flask_wtf.csrf import CSRFProtect
+from flask_wtf.csrf import CSRFProtect
 from sqlalchemy import create_engine
 from app.config import SECRET_KEY, URL_DB
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.models.db.base import Base
+from app.models.db.book import Book
+from app.models.db.author import Author
+from app.models.db.category import Category
+from app.models.db.book_category import book_category
 
 # Initialisation de l'application flask
 app = Flask(__name__)
@@ -18,7 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] =URL_DB
 # inistialisation de la sécurité...
 
 # Initialisation de CSRFProtect pour la protection contre les attaque CSRF
-# csrf = CSRFProtect(app)
+csrf = CSRFProtect(app)
 
 # Variable pour vérifier la connexion a à la base de donnée
 db_connected = False
@@ -45,7 +49,7 @@ if db_connected:
     # metadata.drop_all(bind=engine)
     metadata.create_all(bind=engine)
     
-    from app.routes import index
+    from app.routes import index, book, author, category
     
     print('------------------------')
     print('Connexion db établie ✅')

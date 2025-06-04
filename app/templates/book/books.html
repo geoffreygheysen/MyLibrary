@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block title %} Liste des livres {% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold text-primary mb-6">Liste des livres</h1>
+<ul>
+    {% for book in books %}
+    <li>{{ book.title }}</li>
+    <li>{{ book.publication_date }}</li>
+    <li>{{ book.author }}</li>
+    {% else %}
+    <li>Aucun livre pour le moment.</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('create_book') }}">Créer un nouveau livre</a>
+
+{% endblock %}
