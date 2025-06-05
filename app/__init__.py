@@ -51,6 +51,6 @@ if db_connected:
     
     from app.routes import index, book, author, category
     
-    print('------------------------')
-    print('Connexion db établie ✅')
-    print('------------------------')
+    print('---------------------------')
+    print('✅ Connexion db établie ✅')
+    print('---------------------------')

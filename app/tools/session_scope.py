@@ -1,8 +1,5 @@
 from contextlib import contextmanager
-from sqlalchemy.orm import sessionmaker
 from app import engine
-
-Session = sessionmaker(bind=engine)
 
 @contextmanager
 def session_scope():

@@ -34,12 +34,12 @@ pip install -r requirements.txt
 ## ⚙️ Installation
 
 ```bash
-# récuperer le repository sur sa machine
+# récuperer le repository avec le terminal
 git clone https://github.com/ton-user/ton-projet.git
 # se positiner sur le projet
 cd ton-projet
 # créer l'environnement virtuel
-python -m venv venv
+py -3 -m venv .venv
 # activer l'environnement virtuel
 .\.venv\Scripts\activate
 # installer le repertoires de technologies utilisées
@@ -72,6 +72,14 @@ URL_DB = f"{scheme}://{username}:{password}@{hostname}:{port}/{database_name}"
 # Configuration SQLAlchemy
 SQLALCHEMY_DATABASE_URI = URL_DB
 ```
+
+---
+
+## 🛠️ Authentification et sécurité
+
+
+à venir...
+
 
 ---
 

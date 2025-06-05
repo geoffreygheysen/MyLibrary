@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+
+{% block title %}Création d'un auteur{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-10 p-6 bg-base-100 shadow-xl rounded-2xl">
+    <h1 class="text-3xl font-bold text-primary mb-6">Créer un auteur</h1>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- Nom -->
+        <div class="form-control mb-4">
+            <label class="label">
+                <span class="label-text">Nom</span>
+            </label>
+            {{ form.name(class="input input-bordered w-full") }}
+            {% if form.name.errors %}
+            <p class="text-error mt-1 text-sm">
+                {% for error in form.name.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            {% endif %}
+        </div>
+
+        <!-- Pays -->
+        <div class="form-control mb-4">
+            <label class="label">
+                <span class="label-text">Pays</span>
+            </label>
+            {{ form.country(class="input input-bordered w-full") }}
+            {% if form.country.errors %}
+            <p class="text-error mt-1 text-sm">
+                {% for error in form.country.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">
+            Ajouter l'auteur
+        </button>
+    </form>
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('get_authors') }}" class="link link-secondary">
+            Voir les auteurs
+        </a>
+    </div>
+</div>
+{% endblock %}

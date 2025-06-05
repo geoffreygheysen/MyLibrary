@@ -23,7 +23,7 @@
                     </svg>
                 </div>
             </div>
-            <a class="btn btn-ghost text-xl">MyLibrary</a>
+            <a href="/" class="btn btn-ghost text-xl">MyLibrary</a>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
@@ -67,7 +67,23 @@
     <div class="container mx-auto px-4 py-10">
         <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
-                {% block content %} {% endblock %}
+                {% block content %}
+
+                <div class="hero bg-base-200 min-h-screen">
+                    <div class="hero-content text-center">
+                        <div class="max-w-md">
+                            <h1 class="text-5xl font-bold">Bienvenue sur My Library</h1>
+                            <p class="py-6">
+                                Développement d'une application web avec Flask, basée sur l’architecture MVT, permettant de gérer 
+                                un catalogue de livres, leurs auteurs et leurs catégories.  
+                                L’objectif est de manipuler les relations entre entités en base de données, et d'afficher les données dynamiquement.
+                            </p>
+                            <button><a href="/books" class="btn btn-primary">Voir la bibliothèque</a></button>
+                        </div>
+                    </div>
+                </div>
+
+                {% endblock %}
             </div>
         </div>
 
